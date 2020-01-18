@@ -3,7 +3,8 @@ class CreateExerciseLogs < ActiveRecord::Migration[6.0]
     create_table :exercise_logs do |t|
       t.integer :exercise_id
       t.integer :user_id
-      t.integer :id
+      t.integer :weight
+      t.integer :reps
     end
   end
 end
