@@ -9,12 +9,16 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <nav>
-    <% if !user_signed_in? %>
-      <%= link_to "Sign In", new_user_session_path %>
+  <a href="<% root_url %>"/>Home</a>
+    <% if !current_user %>
+      <%= link_to "Log In", user_session_path %>
       <%= link_to "Sign UP", new_user_registration_path %>
       <%= link_to "Sign in with Github", user_github_omniauth_authorize_path %>
       <% else %>
       <%= button_to "Sign Out", destroy_user_session_path, {method: 'delete'} %>
+      <%= link_to "Routines", routines_path %>
+      <%= link_to "Exercises", exercises_path %>
+      <%= link_to "Exercise Logs", exercise_logs_path %>
     <% end%>
   </nav>
   <p class="notice"><%= notice %></p>

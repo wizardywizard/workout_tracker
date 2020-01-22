@@ -1,0 +1,10 @@
+<%= form_for routine do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br />
+    <%= f.collection_check_boxes(:exercise_ids, Exercise.all, :id, :name)do |b| %>
+        <%= b.label class:"label-checkbox" do%>
+            <%=b.check_box + b.text%>
+        <% end %>
+    <% end %>
+    <%= f.submit %>
+  <% end %>

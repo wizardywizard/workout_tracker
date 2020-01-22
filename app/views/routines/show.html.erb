@@ -1,0 +1,8 @@
+<%= link_to "Edit Routine", edit_routine_path(@routine) %>
+<%= link_to "Delete Routine", routine_path(@routine),method: :delete %>
+<h1><%= @routine.name %></h1>
+<% @routine.exercises.each do |exercise| %>
+    <%= exercise.name %>
+    : weights? 
+    <%= exercise.weights %>
+<% end %>

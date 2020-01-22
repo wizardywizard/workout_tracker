@@ -1,0 +1,5 @@
+<h1> Here is a list of all the exercises you can add to a routine</h1>
+<% @exercises.each do |exercise| %>
+    <h1><%= exercise.name %></h1>    
+    <p>Weights? <%= exercise.weights %></p>
+<% end %>

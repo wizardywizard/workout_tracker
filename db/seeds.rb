@@ -6,4 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Exercise.first_or_create(name: "Push-ups", weights: "false")
+exercises = [
+    {name: "Push-ups", weights: "false"},
+    {name: "sit-ups", weights: "false"}
+]
+
+exercises.each do |hash|
+    Exercise.find_or_create_by(hash)
+end
