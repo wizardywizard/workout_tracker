@@ -1,0 +1,12 @@
+<%= form_for exercise_log do |f| %>
+    <%= f.label :date %>
+    <%= f.text_field :date %><br />
+    <%= f.label :weights %>
+    <%= f.text_field :weight %><br />
+    <%= f.collection_check_boxes(:exercise_id, Exercise.all, :id, :name)do |b| %>
+    <%= b.label class:"label-checkbox" do%>
+        <%=b.check_box + b.text%>
+    <% end %>
+<% end %>
+    <%= f.submit %>
+<% end %>

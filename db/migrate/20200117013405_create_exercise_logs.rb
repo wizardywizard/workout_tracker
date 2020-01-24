@@ -5,6 +5,7 @@ class CreateExerciseLogs < ActiveRecord::Migration[6.0]
       t.integer :user_id
       t.integer :weight
       t.integer :reps
+      t.datetime :date
     end
   end
 end
