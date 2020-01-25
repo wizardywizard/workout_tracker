@@ -1,5 +1,7 @@
 class RoutinesController < ApplicationController
 before_action :find_routine, only: [:show, :edit, :update, :destroy]
+before_action :require_login
+skip_before_action :require_login, only: [:index]
     def index
         @routines = Routine.all
     end
@@ -8,8 +10,7 @@ before_action :find_routine, only: [:show, :edit, :update, :destroy]
         @routine = Routine.new
     end
 
-    def create
-        require_login
+    def create        
         @routine = current_user.routines.create(routine_params)
         if @routine.save
             redirect_to routine_path(@routine)
