@@ -10,8 +10,7 @@ class ExerciseLogsController < ApplicationController
 
     def create
         require_login
-        @exercise_log = current_user.exercise_logs.create(exercise_log_params)
-        binding.pry
+        @exercise_log = current_user.exercise_logs.create(exercise_log_params)        
         if @exercise_log.save
             redirect_to exercise_log_path(@exercise_log)
         else
@@ -28,7 +27,7 @@ class ExerciseLogsController < ApplicationController
     def update
         @exercise_log.update(exercise_log_params)
         if @exercise_log.save
-            redirect_to exercise_log_path(@exercise)
+            redirect_to exercise_log_path(@exercise_log)
         else
             render :edit
         end
@@ -45,6 +44,6 @@ class ExerciseLogsController < ApplicationController
     end
 
     def exercise_log_params
-        params.require(:exercise_log).permit(:user_id, :date, :weight, :reps, exercise_id:[])       
+        params.require(:exercise_log).permit(:user_id, :date, :weight, :reps, :exercise_id)       
     end
 end
