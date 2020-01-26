@@ -3,7 +3,7 @@
     <%= f.date_field :date %><br />
     <p>If you used no weights then put 0</p>
     <%= f.label :weights %>
-    <%= f.text_field :weight %><br />
+    <%= f.text_field :weight %><br />    
     <%= f.collection_select(:exercise_id, Exercise.all, :id, :name) %>
     <%= f.label :reps %>
     <%= f.number_field :reps %><br />    
