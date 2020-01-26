@@ -6,6 +6,16 @@
     <%= f.text_field :weight %><br />
     <%= f.collection_select(:exercise_id, Exercise.all, :id, :name) %>
     <%= f.label :reps %>
-    <%= f.text_field :reps %><br />
+    <%= f.number_field :reps %><br />    
     <%= f.submit %>
+<% end %>
+<% if @exercise_log.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@exercise_log.errors.count, "error") %> prohibited this exercise log from being saved:</h2> 
+    <ul>
+    <% @exercise_log.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
 <% end %>

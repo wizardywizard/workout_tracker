@@ -5,6 +5,7 @@ class ExercisesController < ApplicationController
     end
 
     def show
+        require_login
         @exercise = Exercise.find_by_id(params[:id])
     end
 end

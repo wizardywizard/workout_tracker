@@ -8,3 +8,13 @@
     <% end %>
     <%= f.submit %>
   <% end %>
+  <% if @routine.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@routine.errors.count, "error") %> prohibited this routine from being saved:</h2> 
+    <ul>
+    <% @routine.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

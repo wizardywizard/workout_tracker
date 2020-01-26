@@ -8,7 +8,9 @@
 
 exercises = [
     {name: "Push-ups", weights: "false"},
-    {name: "sit-ups", weights: "false"}
+    {name: "sit-ups", weights: "false"},
+    {name: "squats", weights: "true"},
+    {name: "arm curls", weights: "true"}
 ]
 
 exercises.each do |hash|

@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root to: "exercises#index"
   resources :routines
   resources :users
-  resources :exercises
+  resources :exercises do
+    resources :exercise_logs, only: [:new, :index]
+  end
   resources :exercise_logs
-  # get '/signin', to: 'session#new'
-  # post '/signin', to: 'session#create'
-  # delete '/session', to: 'session#destroy'
+  
 end
