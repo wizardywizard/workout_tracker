@@ -11,8 +11,7 @@ class Routine < ActiveRecord::Base
     end
 
     def must_have_three_exercises
-        if exercises.size < 3
-            binding.pry
+        if exercises.size < 3          
             errors.add(:exercises, "must have 3 exercises selected")
         end
     end
