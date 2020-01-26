@@ -3,7 +3,7 @@ before_action :find_routine, only: [:show, :edit, :update, :destroy]
 before_action :require_login
 skip_before_action :require_login, only: [:index]
     def index
-        @routines = Routine.all
+        @routines = current_user.routines.all
     end
 
     def new

@@ -1,5 +1,5 @@
 <h1> Here is a list of the logs that you filled out for this exercise </h1>
 <h3><%= link_to "New Log", new_exercise_log_path %></h3>
 <% @exercise.exercise_logs.by_user(current_user).each do |exercise| %>
-    <%= exercise.name %>
+    <%= link_to "#{exercise.date ? exercise.date.strftime("%m/%d/%Y") : 'nodate'}", exercise_log_path(exercise) %>
 <% end %>

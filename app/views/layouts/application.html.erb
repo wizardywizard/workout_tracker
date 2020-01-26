@@ -9,7 +9,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <nav>
-  <a href="<% root_url %>"/>Home</a>
+  <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
     <% if !current_user %>
       <%= link_to "Log In", user_session_path %>
       <%= link_to "Sign UP", new_user_registration_path %>

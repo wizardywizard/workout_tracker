@@ -1,7 +1,7 @@
 class ExerciseLogsController < ApplicationController
     before_action :find_exercise_log, only: [:show, :edit, :update, :destroy]
     def index
-        @exercise_logs = ExerciseLog.all
+        @exercise_logs = current_user.exercise_logs.all
     end
 
     def new
