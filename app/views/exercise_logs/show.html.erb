@@ -1,3 +1,5 @@
 <%= link_to "Edit Exercise Log", edit_exercise_log_path(@exercise_log) %>
 <h1><%= @exercise_log.exercise.name  %></h1>
-<%= @exercise_log.date ? @exercise_log.date.strftime("%m/%d/%Y") : "nodate" %>
+<h2><%= @exercise_log.date ? @exercise_log.date.strftime("%m/%d/%Y") : "nodate" %></h2>
+<h3>weight:<%= @exercise_log.weight %></h3>
+<h3>reps:<%= @exercise_log.reps %></h3>
