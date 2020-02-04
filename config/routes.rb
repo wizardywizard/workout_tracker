@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: "exercises#index"
   resources :routines
   resources :users
+  resources :users do
+    resources :exercises, only: [:index]
+  end
   resources :exercises do
     resources :exercise_logs, only: [:new, :index]
   end

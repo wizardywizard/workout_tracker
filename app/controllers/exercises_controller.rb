@@ -1,7 +1,11 @@
 class ExercisesController < ApplicationController
 
-    def index
-        @exercises = Exercise.all
+    def index 
+        if params[:user_id]
+            @exercises = User.find(params[user_id]).exercises
+        else
+            @exercises = Exercise.all
+        end
     end
 
     def show

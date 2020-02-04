@@ -41,6 +41,9 @@ class ExerciseLogsController < ApplicationController
     private
     def find_exercise_log
         @exercise_log = ExerciseLog.find_by(id: params[:id])
+        if !@exercise_log
+            redirect_to new_exercise_log_path
+        end
     end
 
     def exercise_log_params

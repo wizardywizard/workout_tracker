@@ -5,10 +5,11 @@ class Routine < ActiveRecord::Base
     has_many :exercise_logs, through: :exercises
     validates :name, presence: { message: "must have a name" }
     validate :must_have_three_exercises
+    scope :by_user, -> { where("user_id == user.id") }
 
-    def self.by_user(user)
-        where(:user_id => user.id)
-    end
+    # def self.by_user(user)
+    #     where(:user_id => user.id)
+    # end
 
     def must_have_three_exercises
         if exercises.size < 3          
