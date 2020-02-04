@@ -22,9 +22,11 @@ class ExerciseLogsController < ApplicationController
     end
   
     def edit
+        current_user
     end
 
     def update
+        current_user
         @exercise_log.update(exercise_log_params)
         if @exercise_log.save
             redirect_to exercise_log_path(@exercise_log)
@@ -34,6 +36,7 @@ class ExerciseLogsController < ApplicationController
     end
 
     def destroy
+        current_user
         @exercise_log.delete
         redirect_to exercise_log_path
     end

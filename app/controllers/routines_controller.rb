@@ -23,9 +23,11 @@ skip_before_action :require_login, only: [:index]
     end
   
     def edit
+        current_user
     end
   
     def update
+        current_user
         @routine.update(routine_params)
         if @routine.save
             redirect_to routine_path(@routine)
@@ -35,6 +37,7 @@ skip_before_action :require_login, only: [:index]
     end
 
     def destroy
+        current_user
         @routine.delete
         redirect_to routines_path
     end
