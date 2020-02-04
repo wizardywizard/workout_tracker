@@ -1,5 +1,8 @@
 class ExerciseLogsController < ApplicationController
     before_action :find_exercise_log, only: [:show, :edit, :update, :destroy]
+    before_action :require_login
+    skip_before_action :require_login, only: [:index]
+
     def index
         @exercise_logs = current_user.exercise_logs.all
     end
@@ -8,8 +11,7 @@ class ExerciseLogsController < ApplicationController
         @exercise_log = ExerciseLog.new
     end
 
-    def create
-        require_login
+    def create       
         @exercise_log = current_user.exercise_logs.create(exercise_log_params)        
         if @exercise_log.save
             redirect_to exercise_log_path(@exercise_log)
@@ -21,12 +23,10 @@ class ExerciseLogsController < ApplicationController
     def show
     end
   
-    def edit
-        current_user
+    def edit        
     end
 
-    def update
-        current_user
+    def update        
         @exercise_log.update(exercise_log_params)
         if @exercise_log.save
             redirect_to exercise_log_path(@exercise_log)
@@ -35,8 +35,7 @@ class ExerciseLogsController < ApplicationController
         end
     end
 
-    def destroy
-        current_user
+    def destroy        
         @exercise_log.delete
         redirect_to exercise_log_path
     end
