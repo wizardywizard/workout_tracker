@@ -4,7 +4,7 @@ class ExerciseLogsController < ApplicationController
     skip_before_action :require_login, only: [:index]
 
     def index
-        @exercise_logs = current_user.exercise_logs.all
+        @exercise_logs = ExerciseLog.by_user(current_user)
     end
 
     def new

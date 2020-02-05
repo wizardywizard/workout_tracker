@@ -1,1 +1,5 @@
-<%= render partial: 'form', locals: {exercise_log: @exercise_log} %>
+<% if @exercise_log.user == current_user %>
+    <%= render partial: 'form', locals: {exercise_log: @exercise_log} %>
+<% else %>
+    <%= link_to "Back", root_url %>
+<% end %>
