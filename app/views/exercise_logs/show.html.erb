@@ -1,4 +1,5 @@
 <%= link_to "Edit Exercise Log", edit_exercise_log_path(@exercise_log) %>
+<%= link_to "Delete Exercise Log", exercise_log_path(@exercise_log),method: :delete %>
 <h1><%= @exercise_log.exercise.name  %></h1>
 <h2><%= @exercise_log.date ? @exercise_log.date.strftime("%m/%d/%Y") : "nodate" %></h2>
 <h3>weight:<%= @exercise_log.weight %></h3>

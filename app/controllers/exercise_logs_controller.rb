@@ -8,7 +8,7 @@ class ExerciseLogsController < ApplicationController
     end
 
     def new
-        @exercise_log = ExerciseLog.new
+        @exercise_log = ExerciseLog.by_user(current_user).new
     end
 
     def create       
@@ -26,18 +26,26 @@ class ExerciseLogsController < ApplicationController
     def edit        
     end
 
-    def update        
-        @exercise_log.update(exercise_log_params)
-        if @exercise_log.save
-            redirect_to exercise_log_path(@exercise_log)
+    def update 
+        if current_user == @exercise_log.user      
+         @exercise_log.update(exercise_log_params)
+            if @exercise_log.save
+                redirect_to exercise_log_path(@exercise_log)
+            else
+                render :edit
+            end
         else
-            render :edit
-        end
+            redirect_to root_url
+        end   
     end
 
-    def destroy        
-        @exercise_log.delete
-        redirect_to exercise_log_path
+    def destroy 
+        if current_user == @exercise_log.user      
+            @exercise_log.delete
+            redirect_to exercise_log_path
+        else
+            redirect_to root_url
+        end
     end
 
     private
